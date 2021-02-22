@@ -41,6 +41,7 @@ class kibana::service {
 
   service { 'kibana':
     ensure => $_ensure,
+    name   => $::kibana::service_name,
     enable => $_enable,
   }
 }

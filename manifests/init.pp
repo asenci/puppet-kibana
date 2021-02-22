@@ -22,6 +22,8 @@
 # @param package_source Local path to package file for file (not repo) based installation
 # @param manage_repo Whether to manage the package manager repository
 # @param status Service status
+# @param package_name Package name
+# @param service_name Service name
 #
 # @author Tyler Langlois <tyler.langlois@elastic.co>
 #
@@ -32,6 +34,8 @@ class kibana (
   Boolean $oss,
   Optional[String] $package_source,
   Kibana::Status $status,
+  String $package_name = 'kibana',
+  String $service_name = 'kibana',
 ) {
 
   contain ::kibana::install

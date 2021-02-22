@@ -20,9 +20,13 @@ class kibana::install {
     }
   }
 
-  $_package_name = $::kibana::oss ? {
-    true    => 'kibana-oss',
-    default => 'kibana',
+  if ($::kibana::package_name == 'kibana') {
+    $_package_name = $::kibana::oss ? {
+      true    => 'kibana-oss',
+      default => 'kibana',
+    }
+  } else {
+    $_package_name = $::kibana::package_name
   }
 
   package { 'kibana':
